@@ -1,4 +1,5 @@
-# Difference between pre-signed URLs, signed URLs, and signed cookies is S3
+# S3
+## Difference between pre-signed URLs, signed URLs, and signed cookies is S3
 pre-signed URLs, signed URLs, and signed cookies are not the same. They are used in different scenarios to control access to your Amazon S3 objects or content distributed via Amazon CloudFront. Here's an explanation of each and the scenarios in which they are typically used:
 
 ### Pre-signed URLs
@@ -50,3 +51,19 @@ pre-signed URLs, signed URLs, and signed cookies are not the same. They are used
 | **Example**      | Share a file temporarily                         | Provide access to a specific video file            | Allow browsing of a private website               |
 
 By understanding these different methods and when to use each, you can more effectively manage access to your content on AWS.
+
+# Dynamodb 
+Certainly! Here are the key points about Amazon DynamoDB primary keys:
+
+1. **Partition Key (Simple Primary Key):**
+   - Consists of a single attribute.
+   - DynamoDB uses the partition key's value as input to an internal hash function to determine the physical partition where the item is stored.
+   - Ideal for scenarios where items are uniquely identified by a single attribute and do not require sorting within the partition.
+
+2. **Partition Key and Sort Key (Composite Primary Key):**
+   - Consists of two attributes: a partition key and a sort key.
+   - The partition key determines the partition, and the sort key is used to order items within the partition.
+   - Suitable for scenarios where items need to be grouped by the partition key and sorted by the sort key within each partition.
+   - Supports efficient querying and retrieval of range-based data.
+
+These two primary key structures in DynamoDB cater to different data access patterns and query requirements, enabling optimized performance and scalability for various application needs.
