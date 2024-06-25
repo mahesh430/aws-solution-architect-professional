@@ -67,3 +67,18 @@ Certainly! Here are the key points about Amazon DynamoDB primary keys:
    - Supports efficient querying and retrieval of range-based data.
 
 These two primary key structures in DynamoDB cater to different data access patterns and query requirements, enabling optimized performance and scalability for various application needs.
+# NACL
+When you create Network Access Control Lists (NACLs), you can specify both allow and deny rules. This is useful if you want to explicitly deny certain types of traffic to your application. For example, you can define IP addresses (as CIDR ranges), protocols, and destination ports that are denied access to the entire subnet. If your application is used only for TCP traffic, you can create a rule to deny all UDP traffic or vice versa. This option is useful when responding to DDoS attacks because it lets you create your own rules to mitigate the attack when you know the source IPs or other signatures.
+
+# NLB
+A Network Load Balancer operates at the connection level (Layer 4), routing connections to targets (Amazon EC2 instances, microservices, and containers) within Amazon VPC based on IP protocol data. Ideal for load balancing of both TCP and UDP traffic, Network Load Balancer is capable of handling millions of requests per second while maintaining ultra-low latencies. Network Load Balancer is optimized to handle sudden and volatile traffic patterns while using a single static IP address per Availability Zone.
+For UDP traffic, the load balancer selects a target using a flow hash algorithm based on the protocol, source IP address, source port, destination IP address, and destination port. A UDP flow has the same source and destination, so it is consistently routed to a single target throughout its lifetime. Different UDP flows have different source IP addresses and ports so that they can be routed to different targets.
+
+# AWS WAF
+AWS Web Application Firewall (WAF) cannot directly protect a Network Load Balancer (NLB). AWS WAF is designed to protect web applications by filtering and monitoring HTTP and HTTPS traffic, and it is typically used in conjunction with an Application Load Balancer (ALB) or Amazon CloudFront, which handle HTTP/HTTPS traffic at Layer 7 of the OSI model.
+# Neptune DB
+Neptune DB is designed for graph application and loading CSV formatted data. Amazon QuickSight can directly use Neptune DB as a source.
+# ENI
+You can create and configure network interfaces in your account and attach them to instances in your VPC. Your account might also have requester-managed network interfaces, which are created and managed by AWS services to enable you to use other resources and services.
+You can create a network interface, attach it to an instance, detach it from an instance, and attach it to another instance. The attributes of a network interface follow it as it's attached or detached from an instance and reattached to another instance. When you move a network interface from one instance to another, network traffic is redirected to the new instance.
+Each instance has a default network interface, called the primary network interface. You cannot detach a primary network interface from an instance. You can create and attach additional network interfaces.
