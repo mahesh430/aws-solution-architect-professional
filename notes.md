@@ -125,3 +125,28 @@ AWS Network Firewall is a stateful, managed, network firewall and intrusion dete
 Once AWS Network Firewall is deployed, you will see a firewall endpoint in each firewall subnet. Firewall endpoint is similar to interface endpoint and it shows up as vpce-id in your VPC route table target selection. You have multiple deployment models for Network Firewall.
 
 For a centralized egress deployment model, an AWS Transit Gateway is a prerequisite. AWS Transit Gateway acts as a network hub and simplifies the connectivity between VPCs. For this model, we have a dedicated, central egress VPC which has a NAT gateway configured in a public subnet with access to IGW.
+
+# Amazon WorkDocs
+Amazon WorkDocs is a fully managed, secure content creation, storage, and collaboration service. With Amazon WorkDocs, you can easily create, edit, and share content, and because it’s stored centrally on AWS, access it from anywhere on any device. Amazon WorkDocs makes it easy to collaborate with others, and lets you easily share content, provide rich feedback, and collaboratively edit documents. You can use Amazon WorkDocs to retire legacy file share infrastructure by moving file shares to the cloud. Amazon WorkDocs lets you integrate with your existing systems, and offers a rich API so that you can develop your own content-rich applications. Amazon WorkDocs is built on AWS, where your content is secured on the world's largest cloud infrastructure.
+
+# Cloudfront
+Amazon CloudFront is a web service that speeds up the distribution of your static and dynamic web content, such as .html, .css, .js, and image files, to your users. CloudFront delivers your content through a worldwide network of data centers called edge locations. When a user requests content that you're serving with CloudFront, the request is routed to the edge location that provides the lowest latency (time delay) so that content is delivered with the best possible performance.
+You create a CloudFront distribution to tell CloudFront where you want the content to be delivered from and the details about how to track and manage content delivery. Then CloudFront uses computers—edge servers—that are close to your viewers to deliver that content quickly when someone wants to see it or use it.
+
+In general, if you’re using an Amazon S3 bucket as the origin for a CloudFront distribution, you can either allow everyone to have access to the files there or you can restrict access. To restrict access to content that you serve from Amazon S3 buckets, follow these steps:
+
+ - Create a special CloudFront user called an origin access control (OAC) and associate it with your distribution.
+
+ - Configure your S3 bucket permissions so that CloudFront can use the OAC to access the files in your bucket and serve them to your users. Make sure that users can’t use a direct URL to the S3 bucket to access a file there.
+
+After you take these steps, users can only access your files through CloudFront, not directly from the S3 bucket.
+You can configure a single CloudFront web distribution to serve different types of requests from multiple origins. For example, if you are building a website that serves static content from an Amazon Simple Storage Service (Amazon S3) bucket and dynamic content from a load balancer, you can serve both types of content from a CloudFront web distribution.
+
+Follow these steps to configure a CloudFront web distribution to serve static content from an S3 bucket and dynamic content from a load balancer:
+ - Open your web distribution from the CloudFront console.
+ - Choose the Origins tab.
+ - Create one origin for your S3 bucket and another origin for your load balancer.
+ - Note: If you're using a custom origin server or an S3 website endpoint, you must enter the origin's domain name into the Origin Domain Name field.
+ - From your distribution, choose the Behaviors tab.
+ - Create a behavior that specifies a path pattern to route all static content requests to the S3 bucket. For example, you can set the "images/*.jpg" path pattern to route all requests for ".jpg" files in the images directory to the S3 bucket.
+ - Edit the Default (*) path pattern behavior and set its Origin as your load balancer.
