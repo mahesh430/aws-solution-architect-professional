@@ -82,3 +82,33 @@ Neptune DB is designed for graph application and loading CSV formatted data. Ama
 You can create and configure network interfaces in your account and attach them to instances in your VPC. Your account might also have requester-managed network interfaces, which are created and managed by AWS services to enable you to use other resources and services.
 You can create a network interface, attach it to an instance, detach it from an instance, and attach it to another instance. The attributes of a network interface follow it as it's attached or detached from an instance and reattached to another instance. When you move a network interface from one instance to another, network traffic is redirected to the new instance.
 Each instance has a default network interface, called the primary network interface. You cannot detach a primary network interface from an instance. You can create and attach additional network interfaces.
+
+# Spot Fleet
+A Spot Fleet is a set of Spot Instances and optionally On-Demand Instances that are launched based on criteria that you specify. The Spot Fleet selects the Spot capacity pools that meet your needs and launches Spot Instances to meet the target capacity for the fleet. By default, Spot Fleets are set to maintain target capacity by launching replacement instances after Spot Instances in the fleet are terminated. You can submit a Spot Fleet as a one-time request, which does not persist after the instances have been terminated. You can include On-Demand Instance requests in a Spot Fleet request.
+ ### Allocation Strategy Options
+
+The Spot Fleet uses various strategies to fulfill the Spot Fleet request efficiently:
+
+- **Lowest Price**: Launches instances in the AZs with the lowest Spot price first, helping to minimize costs.
+- **Diversified Instances across AZs**: Spreads instances across all selected AZs to maintain high availability and reduce the impact of interruptions in any single AZ.
+- **Capacity-Optimized**: Launches instances in the AZs with the most available capacity. This helps to optimize for capacity availability while still considering price.
+- **Capacity-Optimized with Prioritized Spot Pools**: Prioritizes instances in the Spot pools that have the most available capacity while also considering your price limits and instance type preferences.
+
+# Amazon Aurora
+
+1. **Auto-Failover and High Availability**:
+   - Amazon Aurora supports automatic failover within the same AWS Region. In the event of a primary instance failure, Aurora automatically promotes a read replica to become the new primary, ensuring minimal downtime.
+   - Failover typically occurs within 30 seconds or less, providing quick recovery and high availability for applications.
+   - Aurora's architecture with multiple copies of data across different Availability Zones (AZs) within a Region enhances fault tolerance and reliability.
+
+2. **Multi-Region Replication and Global Database**:
+   - Aurora supports cross-Region replication, allowing you to create read replicas in different AWS Regions for disaster recovery and geographical data locality.
+   - Aurora Global Database extends this capability further by enabling a single Aurora database to span multiple AWS Regions.
+   - Global Database manages replication across Regions automatically, ensuring data consistency and enabling low-latency access to data globally.
+
+3. **Performance and Scalability**:
+   - Aurora is designed for high performance and scalability, offering fast read/write operations and low latency.
+   - It uses a distributed, SSD-backed storage layer that automatically scales up to 64TB per database cluster without performance degradation.
+   - Compute resources (CPU and memory) can be scaled independently of storage, allowing you to adjust performance based on workload demands.
+
+These points highlight Aurora's strengths in providing robust, scalable, and highly available relational database capabilities on AWS, suitable for demanding applications and workloads.
