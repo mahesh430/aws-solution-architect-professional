@@ -51,7 +51,8 @@ pre-signed URLs, signed URLs, and signed cookies are not the same. They are used
 | **Example**      | Share a file temporarily                         | Provide access to a specific video file            | Allow browsing of a private website               |
 
 By understanding these different methods and when to use each, you can more effectively manage access to your content on AWS.
-
+#### Synchronize Data to S3: 
+Use the AWS CLI's s3 sync command to transfer the on-premises data to an S3 bucket. This initial synchronization allows ample time for the bulk of the data to be transferred to AWS without impacting daily operations.
 # Dynamodb 
 Certainly! Here are the key points about Amazon DynamoDB primary keys:
 
@@ -110,5 +111,17 @@ The Spot Fleet uses various strategies to fulfill the Spot Fleet request efficie
    - Aurora is designed for high performance and scalability, offering fast read/write operations and low latency.
    - It uses a distributed, SSD-backed storage layer that automatically scales up to 64TB per database cluster without performance degradation.
    - Compute resources (CPU and memory) can be scaled independently of storage, allowing you to adjust performance based on workload demands.
+# Step Functions
+AWS Step Functions lets you coordinate multiple AWS services into serverless workflows so you can build and update apps quickly. Using Step Functions, you can design and run workflows that stitch together services, such as AWS Lambda, AWS Fargate, and Amazon SageMaker, into feature-rich applications.
 
-These points highlight Aurora's strengths in providing robust, scalable, and highly available relational database capabilities on AWS, suitable for demanding applications and workloads.
+**AWS Step Functions offer**:
+
+ - Seamless workflow orchestration with state management, enabling easy tracking and resumption of workflows.
+ - Automated retry and error handling, ensuring reliable processing of large batches with minimal manual intervention.
+ - Scalable and concurrent execution capabilities, supporting multiple operations simultaneously for efficient workload management.
+# AWS Network Firewall
+AWS Network Firewall is a stateful, managed, network firewall and intrusion detection and prevention service for your virtual private cloud (VPC) that you created in Amazon Virtual Private Cloud (Amazon VPC). With Network Firewall, you can filter traffic at the perimeter of your VPC. This includes filtering traffic going to and coming from an internet gateway, NAT gateway, or over VPN or AWS Direct Connect.
+
+Once AWS Network Firewall is deployed, you will see a firewall endpoint in each firewall subnet. Firewall endpoint is similar to interface endpoint and it shows up as vpce-id in your VPC route table target selection. You have multiple deployment models for Network Firewall.
+
+For a centralized egress deployment model, an AWS Transit Gateway is a prerequisite. AWS Transit Gateway acts as a network hub and simplifies the connectivity between VPCs. For this model, we have a dedicated, central egress VPC which has a NAT gateway configured in a public subnet with access to IGW.
