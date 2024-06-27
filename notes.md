@@ -150,3 +150,37 @@ Follow these steps to configure a CloudFront web distribution to serve static co
  - From your distribution, choose the Behaviors tab.
  - Create a behavior that specifies a path pattern to route all static content requests to the S3 bucket. For example, you can set the "images/*.jpg" path pattern to route all requests for ".jpg" files in the images directory to the S3 bucket.
  - Edit the Default (*) path pattern behavior and set its Origin as your load balancer.
+# RDS
+
+Database sharding is the process of storing a large database across multiple machines. A single machine, or database server, can store and process only a limited amount of data. Database sharding overcomes this limitation by splitting data into smaller chunks, called shards, and storing them across several database servers. All database servers usually have the same underlying technologies, and they work together to store and process large volumes of data.
+
+Amazon RDS Proxy is a fully managed, highly available database proxy for Amazon Relational Database Service (RDS) that makes applications more scalable, more resilient to database failures, and more. Amazon RDS Proxy sits between your application and your relational database to efficiently manage connections to the database and improve the scalability of the application. Amazon RDS Proxy can be enabled for most applications with no code changes.
+Your Amazon RDS Proxy instance maintains a pool of established connections to your RDS database instances, reducing the stress on database compute and memory resources that typically occurs when new connections are established. RDS Proxy also shares infrequently used database connections so that fewer connections access the RDS database.
+With RDS Proxy, you can build applications that can transparently tolerate database failures without needing to write complex failure-handling code. The proxy automatically routes traffic to a new database instance while preserving application connections. It also bypasses Domain Name System (DNS) caches to reduce failover times by up to 66% for Aurora Multi-AZ databases
+
+# API Gateway
+### Proxy Integration in API Gateway - Summary
+
+1. **HTTP Proxy Integration:**
+   - **Direct Passthrough:** Forwards the entire client request to the backend HTTP service and returns the backend's response to the client without modification.
+   - **Simplified Setup:** Ideal for exposing existing HTTP endpoints with minimal configuration and no custom transformations.
+
+2. **Lambda Proxy Integration:**
+   - **Standardized JSON Handling:** Converts the client request to a JSON format for Lambda, allowing the function to process the request and return a customized response.
+   - **Enhanced Control and Flexibility:** Suitable for implementing custom logic, interacting with other AWS services, and handling complex request and response transformations.
+# AWS Client VPN
+AWS Client VPN is a managed client-based VPN service that enables you to securely access your AWS resources and resources in your on-premises network. With Client VPN, you can access your resources from any location using an OpenVPN-based VPN client.
+The administrator is responsible for setting up and configuring the service. This involves creating the Client VPN endpoint, associating the target network, configuring the authorization rules, and setting up additional routes (if required).
+The client is the end user. This is the person who connects to the Client VPN endpoint to establish a VPN session. The client establishes the VPN session from their local computer or mobile device using an OpenVPN-based VPN client application.
+The following are the key components for using AWS Client VPN.
+-Client VPN endpoint — Your Client VPN administrator creates and configures a Client VPN endpoint in AWS. Your administrator controls which networks and resources you can access when establishing a VPN connection.
+-VPN client application — The software application that you use to connect to the Client VPN endpoint and establish a secure VPN connection.
+-Client VPN endpoint configuration file — A configuration file that's provided to you by your Client VPN administrator. The file includes information about the Client VPN endpoint and the certificates required to establish a VPN connection. You load this file into your chosen VPN client application.
+# AWS CDK
+AWS CDK allows developers to write infrastructure as code using familiar programming languages like Python and TypeScript, which they are already comfortable with.
+# EC2Rescue
+EC2Rescue can help you diagnose and troubleshoot problems on Amazon EC2 Linux and Windows Server instances. You can run the tool manually, or you can run the tool automatically by using Systems Manager Automation and the AWSSupport-ExecuteEC2Rescue document. The AWSSupport-ExecuteEC2Rescue document is designed to perform a combination of Systems Manager actions, AWS CloudFormation actions, and Lambda functions that automate the steps normally required to use EC2Rescue.
+
+# AWS AppSync
+AWS AppSync is a fully managed service that makes it easy to develop GraphQL APIs by handling the heavy lifting of securely connecting to data sources like Amazon DynamoDB, Lambda, and more. Adding caches to improve performance, subscriptions to support real-time updates, and client-side data stores that keep offline clients in sync are just as easy. Once deployed, AWS AppSync automatically scales your GraphQL API execution engine up and down to meet API request volumes.
+AppSync can also be used for real-time collaboration. You can broadcast data from the backend to all connected clients (one-to-many) or between clients (many-to-many), such as in a second screen scenario where you broadcast the same data to all clients, who can then reply.
