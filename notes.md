@@ -184,3 +184,13 @@ EC2Rescue can help you diagnose and troubleshoot problems on Amazon EC2 Linux an
 # AWS AppSync
 AWS AppSync is a fully managed service that makes it easy to develop GraphQL APIs by handling the heavy lifting of securely connecting to data sources like Amazon DynamoDB, Lambda, and more. Adding caches to improve performance, subscriptions to support real-time updates, and client-side data stores that keep offline clients in sync are just as easy. Once deployed, AWS AppSync automatically scales your GraphQL API execution engine up and down to meet API request volumes.
 AppSync can also be used for real-time collaboration. You can broadcast data from the backend to all connected clients (one-to-many) or between clients (many-to-many), such as in a second screen scenario where you broadcast the same data to all clients, who can then reply.
+
+# CloudFront
+You can use CloudFront with the on-premises website as the origin. CloudFront is a highly available, scalable service that can cache frequently accessed files on the website and can significantly make the load times faster.
+# RPO and RTO
+**RPO (Recovery Point Objective)**: The maximum acceptable amount of data loss measured in time; essentially, it indicates how much data can be lost during a disruption. 
+
+**RTO (Recovery Time Objective)**: The maximum acceptable amount of time it should take to restore services after a disruption; it defines the target time to recover from an outage.
+
+# Redshift
+Amazon Redshift periodically takes snapshots of that cluster, usually every eight hours or following every 5 GB per node of data changes, or whichever comes first. Automated snapshots are enabled by default when you create a cluster.Amazon Redshift only has cross-region backup feature (using snapshots); it can't replicate directly to another cluster in another region.
