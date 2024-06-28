@@ -194,3 +194,40 @@ You can use CloudFront with the on-premises website as the origin. CloudFront is
 
 # Redshift
 Amazon Redshift periodically takes snapshots of that cluster, usually every eight hours or following every 5 GB per node of data changes, or whichever comes first. Automated snapshots are enabled by default when you create a cluster.Amazon Redshift only has cross-region backup feature (using snapshots); it can't replicate directly to another cluster in another region.
+
+# AWS Directory Service
+
+ when using the AD connector for SSO, you cannot use both on-premises AD and third-party integrations at the same time. For this Leverage on the third-party integration support of AWS IAM Identity Center.
+ ### AWS Directory Service Overview for Solutions Architect Professional Exam
+
+**AWS Directory Service** makes it easy to set up and run directories in the AWS Cloud or connect AWS resources with existing on-premises Microsoft Active Directory (AD). Key components and their features include:
+
+1. **AWS Managed Microsoft AD**:
+   - Fully managed Microsoft AD in AWS.
+   - Supports multi-region deployment, high availability, and trust relationships with on-premises AD.
+
+2. **AD Connector**:
+   - Directory gateway redirecting requests to on-premises AD without caching in the cloud.
+   - Ideal for using AWS applications while maintaining on-premises credentials.
+
+3. **Simple AD**:
+   - Managed directory compatible with Microsoft AD, but with fewer features.
+   - Suitable for small-scale use cases requiring basic directory functionality.
+
+4. **Amazon Cloud Directory**:
+   - Scalable, high-performance directory for managing hierarchical data across multiple dimensions.
+   - Useful for organizational charts, course catalogs, and device registries.
+
+5. **Amazon Cognito User Pools**:
+   - Manages user directories and authentication for web and mobile applications.
+   - Integrates with AWS Directory Service for enterprise user management.
+# Amazon Aurora
+ You cannot set Auto Scaling for the master database on Amazon Aurora. You can only manually resize the instance size of the master node. Before you can use Aurora Auto Scaling with an Aurora DB cluster, you must first create an Aurora DB cluster with a primary instance and at least one Aurora Replica.
+
+# Amazon Connect
+ Amazon Connect is an easy-to-use omnichannel cloud contact center that helps companies provide superior customer service across voice, chat, and tasks at a lower cost than traditional contact center systems. You can set up a contact center in a few steps, add agents who are located anywhere, and start engaging with your customers.
+Amazon Connect uses the following services for ML/AI:
+- Amazon Lex—Let you create a chatbot to use as an Interactive Voice Response (IVR).
+- Amazon Polly—Provides text-to-speech in all contact flows.
+- Amazon Transcribe—Grabs conversation recordings from Amazon S3 and transcribes them to text so you can review them.
+- Amazon Comprehend—Takes the transcription of recordings and applies speech analytics machine learning to the call to identify sentiment, keywords, adherence to company policies, and more.
